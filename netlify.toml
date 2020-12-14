@@ -1,0 +1,12 @@
+[build]
+  command = """
+    gem install bundler -v '2.0.2'
+    pip install -U git+https://github.com/jupyter/jupyter-book
+    jupyter-book create mybook --content-folder content
+    cd mybook
+    jupyter-book build ./ --overwrite
+    make install
+    bundle exec jekyll build
+    """
+
+  publish = "mybook/_site"
